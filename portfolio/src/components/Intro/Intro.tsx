@@ -4,7 +4,7 @@ import intro from "./Intro.module.css";
 
 export default function Intro() {
   return (
-    <div>
+    <div className={intro.wrapper}>
       <Image
         src={"/semin.png"}
         alt="개발자"
@@ -12,6 +12,9 @@ export default function Intro() {
         height="10000"
         className={intro.image}
       />
+      <span className={intro.typingText}>
+        안녕하세요 배울 때 늘 흥분하는 프론트엔드 개발자 정세민입니다.
+      </span>
     </div>
   );
 }
