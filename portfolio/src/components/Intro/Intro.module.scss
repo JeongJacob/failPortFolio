@@ -1,0 +1,36 @@
+@use "../../app/mixin.scss";
+
+.wrapper {
+  @include mixin.flexCenter(center);
+}
+
+.image {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  object-fit: cover;
+  filter: brightness(40%);
+}
+
+.typingText {
+  width: 40.5ch;
+  border-right: 0.05em solid black;
+  border-right: 2px solid;
+  animation: typing 2s steps(30), blink 1s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2em;
+  position: absolute;
+  color: white;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

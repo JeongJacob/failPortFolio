@@ -1,0 +1,7 @@
+@mixin flexCenter($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+$titleFontSize: 20px;
