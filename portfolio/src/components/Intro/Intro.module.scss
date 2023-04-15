@@ -6,7 +6,7 @@
 
 .image {
   width: 100vw;
-  height: 94.5vh;
+  height: calc(100vh - 50px);
   object-fit: cover;
   filter: brightness(40%);
 }
