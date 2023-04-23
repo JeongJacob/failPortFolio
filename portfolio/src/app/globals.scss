@@ -130,10 +130,36 @@ button {
   cursor: pointer;
 }
 
-@mixin flexCenter($justify) {
-  display: flex;
-  justify-content: $justify;
-  align-items: center;
+a {
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    color: green;
+  }
 }
 
-$titleFontSize: 20px;
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
