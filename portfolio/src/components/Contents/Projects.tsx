@@ -16,11 +16,22 @@ export interface ArraySlideshowContentProps
   extends Array<SlideshowContentProps> {}
 
 export default function Projects() {
-  const [projectData, setProjectData] = useState<ArraySlideshowContentProps>();
+  const [pikchaData, setPikchaData] = useState<ArraySlideshowContentProps>();
+  const [nerdnestData, setNerdnestData] =
+    useState<ArraySlideshowContentProps>();
   useEffect(() => {
     const getProjectData = async () => {
-      const result = await axios("http://localhost:3000/api/project");
-      setProjectData(result.data);
+      await axios("http://localhost:3000/api/pikchaAPI")
+        .then((res) => setPikchaData(res.data))
+        .catch((err) => console.error(err));
+    };
+    getProjectData();
+  }, []);
+  useEffect(() => {
+    const getProjectData = async () => {
+      await axios("http://localhost:3000/api/nerdnestAPI")
+        .then((res) => setNerdnestData(res.data))
+        .catch((err) => console.error(err));
     };
     getProjectData();
   }, []);
@@ -33,18 +44,33 @@ export default function Projects() {
           <Link href={"https://pikcha36.o-r.kr/"} target="blink">
             <h2>Pikcha</h2>
           </Link>
-          <span>팀 프로젝트</span>
-          <span>23/01 ~ 23/02</span>
-          <div className={projects.role_container}>
-            <h4>팀 내 역할</h4>
-            <p className={projects.role_text}>명소 리스트 조회 및 필터링</p>
-            <p className={projects.role_text}>포스트 리스트 조회 및 필터링</p>
-            <p className={projects.role_text}>상세포스트 CRUD 기능 구현</p>
-            <p className={projects.role_text}>상세포스트 댓글 CRUD 기능 구현</p>
-            <p className={projects.role_text}>마이페이지 정보 CRUD 기능 구현</p>
+          <h3>팀 프로젝트 23/01 ~ 23/02</h3>
+          <h4>팀 내 역할</h4>
+          <div className={projects.role_wrapper}>
+            <div className={projects.role_container}>
+              <ul>
+                <li className={projects.role_text}>
+                  명소 리스트 조회 및 필터링
+                </li>
+                <li className={projects.role_text}>
+                  포스트 리스트 조회 및 필터링
+                </li>
+                <li className={projects.role_text}>
+                  상세포스트 CRUD 기능 구현
+                </li>
+              </ul>
+              <ul>
+                <li className={projects.role_text}>
+                  상세포스트 댓글 CRUD 기능 구현
+                </li>
+                <li className={projects.role_text}>
+                  마이페이지 정보 CRUD 기능 구현
+                </li>
+              </ul>
+            </div>
           </div>
           <div className={projects.slideshow_container}>
-            {projectData && <Slideshow projectData={projectData} />}
+            {pikchaData && <Slideshow projectData={pikchaData} />}
           </div>
         </div>
         <div>
@@ -54,19 +80,29 @@ export default function Projects() {
           >
             <h2>NerdNest</h2>
           </Link>
-          <span>팀 프로젝트</span>
-          <span>23/02 ~ 23/03</span>
-          <div className={projects.role_container}>
-            <h4>팀 내 역할</h4>
-            <p className={projects.role_text}>Header 구현</p>
-            <p className={projects.role_text}>기본 메인 페이지 구현</p>
-            <p className={projects.role_text}>블로그 상세페이지 CRUD 구현</p>
-            <p className={projects.role_text}>댓글/대댓글 CRUD 구현</p>
-            <p className={projects.role_text}>검색페이지 구현</p>
-            <p className={projects.role_text}>Blog Record 컴포넌트 구현</p>
+          <h3>팀 프로젝트 23/02 ~ 23/03</h3>
+
+          <h4>팀 내 역할</h4>
+          <div className={projects.role_wrapper}>
+            <div className={projects.role_container}>
+              <ul>
+                <li className={projects.role_text}>Header 구현</li>
+                <li className={projects.role_text}>기본 메인 페이지 구현</li>
+                <li className={projects.role_text}>
+                  블로그 상세페이지 CRUD 구현
+                </li>
+              </ul>
+              <ul>
+                <li className={projects.role_text}>댓글/대댓글 CRUD 구현</li>
+                <li className={projects.role_text}>검색페이지 구현</li>
+                <li className={projects.role_text}>
+                  Blog Record 컴포넌트 구현
+                </li>
+              </ul>
+            </div>
           </div>
           <div className={projects.slideshow_container}>
-            {projectData && <Slideshow projectData={projectData} />}
+            {nerdnestData && <Slideshow projectData={nerdnestData} />}
           </div>
         </div>
       </div>
