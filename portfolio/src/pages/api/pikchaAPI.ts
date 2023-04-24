@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../util/database";
 
-export default async function project(
+export default async function pikchaAPI(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
