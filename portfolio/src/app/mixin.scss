@@ -1,0 +1,7 @@
+@mixin flexCenter($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+$roleTextFontSize: 1.2rem;

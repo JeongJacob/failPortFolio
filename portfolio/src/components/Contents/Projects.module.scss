@@ -1,0 +1,80 @@
+@use "../../app/mixin.scss";
+
+.wrapper {
+  width: 80vw;
+  padding-top: 3rem;
+  margin: 0 auto;
+}
+
+.content_container {
+  @include mixin.flexCenter(space-between);
+  margin-top: 2rem;
+
+  h3 {
+    margin-top: 1rem;
+  }
+  h4 {
+    margin-top: 2rem;
+  }
+}
+
+.role_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.role_container {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+  }
+}
+
+.role_text {
+  font-size: mixin.$roleTextFontSize;
+}
+
+.slideshow_content_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.slideshow_content_container {
+  @include mixin.flexCenter(center);
+}
+
+.slideshow_content_prev {
+  font-size: 50px;
+}
+
+.slideshow_content_next {
+  font-size: 50px;
+}
+
+.slideshow_content {
+  display: flex;
+  overflow: hidden;
+}
+
+.capture {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  animation: slide 0.5s;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
